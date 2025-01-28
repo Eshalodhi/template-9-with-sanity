@@ -1,12 +1,10 @@
 import Navmenu from "@/components/navmenu";
 import Image from "next/image";
 import Footer from "@/components/footer";
-import { StaticImageData } from "next/image";
 import { client } from "@/sanity/lib/client";
 
-
 interface Params {
-  params: Promise<{ name: string }>;
+  params: { name: string };
 }
 
 interface Chef {
@@ -16,15 +14,24 @@ interface Chef {
   specialty: string;
   description: string;
   available: string;
-  image: StaticImageData;
+  image: string;
 }
 
 export default async function Ourchef({ params }: Params) {
-  const { name } = await params;
-  const response = await client.fetch(`*[_type == 'chef']{
-    'name':name,'position':position,'secialty':speciality}`)
-  const data: Chef[] = await response;
-  console.log(data);
+  const { name } = params;
+  const response = await client
+    .fetch(
+      `*[_type == 'chef']{
+        'name': name, 'position': position, 'specialty': speciality, 'image': image.asset->url
+      }`
+    )
+    .catch((err) => {
+      console.error("Error fetching chefs:", err);
+      return [];
+    });
+
+  const data: Chef[] = response;
+
   return (
     <div>
       <Navmenu />
@@ -33,6 +40,7 @@ export default async function Ourchef({ params }: Params) {
           src="/unsplash_4ycv3Ky1ZZU.png"
           alt="Hero Image"
           fill
+          priority
           style={{ objectFit: "cover" }}
           className="opacity-70"
         />
@@ -48,30 +56,30 @@ export default async function Ourchef({ params }: Params) {
       </section>
 
       <section className="py-12">
-
-
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 container mx-auto px-4 sm:px-6 lg:px-8">
           {data.map((product: Chef, index) => (
-            <div key={index} className="bg-white text-black rounded-lg shadow-lg overflow-hidden">
-            <Image
-              src="/unsplash_GSD9VoG6f-U.png"
-              alt="Monalisa Holly"
-              width={312}
-              height={391}
-              className="w-full h-[391px] object-cover"
-            />
-            <div className="p-4 text-center">
-              <h4 className="text-lg font-bold">Monalisa Holly</h4>
-              <p className="text-gray-500 text-sm">Chef</p>
+            <div
+              key={index}
+              className="bg-white text-black rounded-lg shadow-lg overflow-hidden"
+            >
+              <Image
+                src={product.image}
+                alt={product.name}
+                width={312}
+                height={391}
+                className="w-full h-[391px] object-cover"
+              />
+              <div className="p-4 text-center">
+                <h4 className="text-lg font-bold">{product.name}</h4>
+                <p className="text-gray-500 text-sm">{product.position}</p>
+              </div>
             </div>
-          </div>
           ))}
         </div>
       </section>
 
       {/* Support Section */}
       <div className="flex flex-col bg-black lg:flex-row items-center px-12 py-8 justify-between gap-8">
-        {/* Left Text */}
         <div className="lg:w-1/2 text-center lg:text-left">
           <h4 className="text-xl text-white font-bold">
             <span className="text-[#ff9f0d]">Still</span> You Need Our Support?
@@ -81,7 +89,6 @@ export default async function Ourchef({ params }: Params) {
           </p>
         </div>
 
-        {/* Right Input and Button */}
         <div className="lg:w-1/2 flex items-center justify-center lg:justify-end">
           <input
             type="email"

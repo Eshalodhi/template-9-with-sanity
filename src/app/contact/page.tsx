@@ -1,30 +1,8 @@
-'use client';
-
 import Footer from "@/components/footer";
 import Navmenu from "@/components/navmenu";
 import Image from "next/image";
-import { useSearchParams } from "next/navigation";
 
 export default function Contact() {
-  const searchParams = useSearchParams();
-  const type = searchParams.get("type"); // Get the 'type' query parameter as a string
-
-  // Define dynamic titles based on `type`
-  const titleMap: { [key: string]: string } = {
-    support: "Contact Support",
-    sales: "Contact Sales",
-    feedback: "Send Feedback",
-  };
-
-  // Safely use `type` and provide a default fallback
-  const pageTitle = type && titleMap[type] ? titleMap[type] : "Contact Us";
-
-  // Format breadcrumb display
-  const breadcrumbType =
-    type && typeof type === "string"
-      ? type.charAt(0).toUpperCase() + type.slice(1)
-      : "Contact";
-
   return (
     <div>
       <Navmenu />
@@ -33,24 +11,23 @@ export default function Contact() {
         <Image
           src="/unsplash_4ycv3Ky1ZZU.png"
           alt="Hero Image"
-          fill
-          style={{ objectFit: "cover" }}
+          layout="fill"
+          objectFit="cover"
           className="opacity-70"
         />
         <div className="absolute inset-0 flex flex-col justify-center items-center text-white px-4 text-center">
-          <h1 className="text-2xl md:text-4xl font-bold">{pageTitle}</h1>
+          <h1 className="text-2xl md:text-4xl font-bold">Contact Us</h1>
           <p className="text-yellow-500 mt-2 text-sm md:text-base">
             <a href="/" className="hover:underline">
               Home
             </a>{" "}
-            &gt; {breadcrumbType}
+            &gt; contact
           </p>
         </div>
       </section>
-      {/* Contact Form Section */}
       <section>
         <div className="bg-white p-8 rounded-lg shadow-md max-w-md mx-auto mt-10">
-          <h1 className="text-2xl font-bold text-center mb-6">{pageTitle}</h1>
+          <h1 className="text-2xl font-bold text-center mb-6">Contact Us</h1>
           <form>
             <div className="mb-4">
               <label
@@ -64,7 +41,7 @@ export default function Contact() {
                 id="first-name"
                 name="first-name"
                 required
-                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring-2 focus:ring-orange-500 focus:outline-none sm:text-sm"
+                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring-orange-500 sm:text-sm"
               />
             </div>
             <div className="mb-4">
@@ -79,7 +56,7 @@ export default function Contact() {
                 id="last-name"
                 name="last-name"
                 required
-                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring-2 focus:ring-orange-500 focus:outline-none sm:text-sm"
+                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring-orange-500 sm:text-sm"
               />
             </div>
             <div className="mb-4">
@@ -94,7 +71,7 @@ export default function Contact() {
                 id="email"
                 name="email"
                 required
-                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring-2 focus:ring-orange-500 focus:outline-none sm:text-sm"
+                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring-orange-500 sm:text-sm"
               />
             </div>
             <div className="mb-6">
@@ -109,7 +86,7 @@ export default function Contact() {
                 name="message"
                 rows={4}
                 required
-                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring-2 focus:ring-orange-500 focus:outline-none sm:text-sm"
+                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring-orange-500 sm:text-sm"
               ></textarea>
             </div>
             <button
@@ -121,7 +98,8 @@ export default function Contact() {
           </form>
         </div>
       </section>
-      <Footer />
+      <Footer/>
+
     </div>
   );
 }

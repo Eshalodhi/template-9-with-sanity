@@ -12,7 +12,7 @@ export default function Pages() {
           src="/unsplash_4ycv3Ky1ZZU.png"
           alt="Hero Image"
           fill
-  style={{ objectFit: 'cover' }}
+          style={{ objectFit: "cover" }}
           className="opacity-70"
         />
         <div className="absolute inset-0 flex flex-col justify-center items-center text-white px-4 text-center">
@@ -85,30 +85,30 @@ export default function Pages() {
       </section>
 
       {/* Support Section */}
-            <div className="flex flex-col bg-black lg:flex-row items-center px-12 py-8 justify-between gap-8">
-              {/* Left Text */}
-              <div className="lg:w-1/2 text-center lg:text-left">
-                <h4 className="text-xl text-white font-bold">
-                  <span className="text-[#ff9f0d]">Still</span> You Need Our Support?
-                </h4>
-                <p className="text-white text-sm">
-                  Don’t wait, make a smart & logical quote here. It’s pretty easy.
-                </p>
-              </div>
-      
-              {/* Right Input and Button */}
-              <div className="lg:w-1/2 flex items-center justify-center lg:justify-end">
-                <input
-                  type="email"
-                  placeholder="Enter Your Email"
-                  className="px-4 py-3 w-full max-w-[250px] lg:max-w-[300px] bg-white text-black border border-gray-400 rounded-l-md focus:outline-none focus:ring-2 focus:ring-[#ff9f0d]"
-                />
-                <button className="px-6 py-3 bg-[#ff9f0d] text-black font-bold rounded-r-md hover:bg-[#ffa500] transition duration-300">
-                  Subscribe Now
-                </button>
-              </div>
-            </div>
-            <Footer />
+      <div className="flex flex-col bg-black lg:flex-row items-center px-12 py-8 justify-between gap-8">
+        {/* Left Text */}
+        <div className="lg:w-1/2 text-center lg:text-left">
+          <h4 className="text-xl text-white font-bold">
+            <span className="text-[#ff9f0d]">Still</span> You Need Our Support?
+          </h4>
+          <p className="text-white text-sm">
+            Don’t wait, make a smart & logical quote here. It’s pretty easy.
+          </p>
+        </div>
+
+        {/* Right Input and Button */}
+        <div className="lg:w-1/2 flex items-center justify-center lg:justify-end">
+          <input
+            type="email"
+            placeholder="Enter Your Email"
+            className="px-4 py-3 w-full max-w-[250px] lg:max-w-[300px] bg-white text-black border border-gray-400 rounded-l-md focus:outline-none focus:ring-2 focus:ring-[#ff9f0d]"
+          />
+          <button className="px-6 py-3 bg-[#ff9f0d] text-black font-bold rounded-r-md hover:bg-[#ffa500] transition duration-300">
+            Subscribe Now
+          </button>
+        </div>
       </div>
+      <Footer />
+    </div>
   );
 }

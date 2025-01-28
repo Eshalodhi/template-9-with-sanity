@@ -310,7 +310,7 @@ export default function FoodPage() {
               <div>
                 <div className="mb-2">
                   <Image
-                    src="/Years of Experienced.png" // Replace with your actual image path
+                    src="/Years of Experienced.png" 
                     alt="Years Of Experience"
                     width={120}
                     height={120}
@@ -323,7 +323,7 @@ export default function FoodPage() {
               <div>
                 <div className="mb-2">
                   <Image
-                    src="/Happy customers.png" // Replace with your actual image path
+                    src="/Happy customers.png"
                     alt="Happy Customers"
                     width={120}
                     height={120}
@@ -395,7 +395,6 @@ export default function FoodPage() {
                 <Image
                   src="/Lettuce Leaf (1).png"
                   alt="Glow Cheese"
-                  layout="intrinsic"
                   width={365}
                   height={79}
                   className="rounded-lg"
@@ -407,7 +406,6 @@ export default function FoodPage() {
                 <Image
                   src="/Lettuce Leaf (2).png"
                   alt="Fresh Breakfast"
-                  layout="intrinsic"
                   width={365}
                   height={79}
                   className="rounded-lg"
@@ -419,7 +417,6 @@ export default function FoodPage() {
                 <Image
                   src="/Lettuce Leaf (3).png"
                   alt="Italian Pizza"
-                  layout="intrinsic"
                   width={365}
                   height={79}
                   className="rounded-lg"
@@ -431,7 +428,6 @@ export default function FoodPage() {
                 <Image
                   src="/Lettuce Leaf (4).png"
                   alt="Mild Butter"
-                  layout="intrinsic"
                   width={365}
                   height={79}
                   className="rounded-lg"
@@ -443,7 +439,6 @@ export default function FoodPage() {
                 <Image
                   src="/Lettuce Leaf (5).png"
                   alt="Slice Beef"
-                  layout="intrinsic"
                   width={365}
                   height={79}
                   className="rounded-lg"
@@ -455,7 +450,6 @@ export default function FoodPage() {
                 <Image
                   src="/Lettuce Leaf (6).png"
                   alt="Fresh Bread"
-                  layout="intrinsic"
                   width={365}
                   height={79}
                   className="rounded-lg"
@@ -467,7 +461,6 @@ export default function FoodPage() {
                 <Image
                   src="/Lettuce Leaf (7).png"
                   alt="Mushroom Pizza"
-                  layout="intrinsic"
                   width={365}
                   height={79}
                   className="rounded-lg"
